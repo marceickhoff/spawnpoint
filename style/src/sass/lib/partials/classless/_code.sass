@@ -1,0 +1,22 @@
+pre, samp, code, kbd, var
+	font-family: $monospace-font-family
+	@if $monospace-font-weight != $default-font-weight
+		font-weight: $monospace-font-weight
+	@if $monospace-font-size != $default-font-size
+		font-size: $monospace-font-size
+	@if $monospace-font-color != $default-font-color
+		color: $monospace-font-color
+	@if $monospace-font-background != transparent
+		background: $monospace-font-background
+		border-radius: $default-border-radius
+pre, samp
+	&:not(:first-child)
+		margin-top: $spacing-xs
+	&:not(:last-child)
+		margin-bottom: $spacing-s
+	padding: $spacing-xs
+	display: block
+code, kbd, var
+	padding: 0 $spacing-xxs / 2
+	margin: 0 $spacing-xxs / 2
+	display: inline-block

@@ -1,0 +1,24 @@
+.container
+	position: relative
+	&:not(:first-child)
+		margin-top: $spacing-m
+	&:not(:last-child)
+		margin-bottom: $spacing-m
+	&.container-spacious
+		&:not(:first-child)
+			margin-top: $spacing-l
+		&:not(:last-child)
+			margin-bottom: $spacing-l
+	&.container-shaded
+		background-color: color-mod($color-base, 5)
+		padding: $spacing-s
+	+breakpoint-min($breakpoint-s)
+		&:not(:first-child)
+			margin-top: $spacing-l
+		&:not(:last-child)
+			margin-bottom: $spacing-l
+		&.container-spacious
+			&:not(:first-child)
+				margin-top: $spacing-xxl
+			&:not(:last-child)
+				margin-bottom: $spacing-xxl

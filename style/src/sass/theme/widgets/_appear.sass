@@ -1,0 +1,19 @@
+@keyframes appear
+	from
+		opacity: 0
+	to
+		opacity: 1
+		transform: translateX(0) scale(1)
+.appear
+	opacity: 0
+	animation: appear $slow-transition-duration $default-transition-function
+	animation-fill-mode: forwards
+	&.appear-1
+		transform: scale(1.1)
+		animation-delay: 0s
+	&.appear-2
+		animation-delay: .5s
+	&.appear-3
+		animation-delay: .75s
+	&.appear-4
+		animation-delay: 1s

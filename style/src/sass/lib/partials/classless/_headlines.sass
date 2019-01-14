@@ -1,0 +1,30 @@
+h1, h2, h3, h4, h5, h6
+	@if $headline-font-family != $default-font-family
+		font-family: $headline-font-family
+	@if $headline-font-weight != $default-font-weight
+		font-weight: $headline-font-weight
+	@if $headline-line-height-multiplier != 1
+		line-height: $headline-line-height-multiplier
+	@if $headline-font-color != $default-font-color
+		color: $headline-font-color
+	&:not(:first-child)
+		margin-top: $spacing-l
+	margin-bottom: $spacing-s
+h1
+	font-size: $font-size-xl
+	+breakpoint-min($breakpoint-s)
+		font-size: $font-size-xxl
+h2
+	font-size: $font-size-l
+	+breakpoint-min($breakpoint-s)
+		font-size: $font-size-xl
+h3
+	font-size: $font-size-m
+	+breakpoint-min($breakpoint-s)
+		font-size: $font-size-l
+h4
+	font-size: $font-size-m
+h5
+	font-size: $font-size-s
+hgroup
+	//TODO

@@ -1,0 +1,14 @@
+.appear
+	opacity: 0
+	transition: opacity $slow-transition-duration $slow-transition-function
+	&.from-below
+		transform: translateY($spacing-m)
+		transition-property: opacity, transform
+	&.appear-done
+		opacity: 1
+		&.from-below
+			transform: translateY(0)
+	&+.appear
+		transition-delay: $default-transition-duration
+		&+.appear
+			transition-delay: $default-transition-duration * 2

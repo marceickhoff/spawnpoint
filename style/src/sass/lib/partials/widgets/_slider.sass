@@ -1,0 +1,119 @@
+.slider
+	overflow: hidden
+	height: $slider-default-height
+	position: relative
+	background-color: color-mod($color-base, 5)
+	border-radius: $default-border-radius
+	&:not(:first-child)
+		margin-top: $spacing-m
+	&:not(:last-child)
+		margin-bottom: $spacing-m
+	.slider-controls
+		.slider-next, .slider-prev
+			position: absolute
+			z-index: 4
+			+center(vertical)
+			text-shadow: 0 0 $spacing-xs $color-base
+			color: $color-canvas
+			height: 100%
+			width: 10%
+			cursor: pointer
+			> *
+				position: absolute
+				transition: transform $default-transition-duration $default-transition-function
+				top: 50%
+				left: 50%
+				transform: translateX(-50%) translateY(-50%)
+		.slider-next
+			right: 0
+			&:hover
+				> *
+					transform: translateX(50%) translateY(-50%)
+		.slider-prev
+			left: 0
+			&:hover
+				> *
+					transform: translateX(-150%) translateY(-50%)
+	.slider-indicators
+		padding: $spacing-s 10%
+		bottom: 0
+		width: 100%
+		display: flex
+		z-index: 4
+		position: absolute
+		justify-content: center
+		.slider-indicator
+			width: $default-font-size
+			height: $default-font-size
+			border-radius: 100%
+			margin: $spacing-xxs
+			box-shadow: 0 0 0 $default-border-width $color-canvas inset
+			transition: box-shadow $default-transition-duration $default-transition-function
+			cursor: pointer
+			&:hover
+				box-shadow: 0 0 0 $default-font-size / 4 $color-canvas inset
+			&.slider-indicator-active
+				box-shadow: 0 0 0 $default-font-size / 2 $color-canvas inset
+	.slider-slide
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		transition: transform $default-transition-duration $default-transition-function
+		.slider-text
+			background: linear-gradient(to bottom, rgba($color-base, 0), rgba($color-base, .5))
+			position: absolute
+			z-index: 1
+			color: $color-canvas
+			padding: $spacing-s 10% $spacing-s * 2 + $default-font-size
+			bottom: 0
+			width: 100%
+			> *
+				opacity: 0
+				transition: all $default-transition-duration * 3 $default-transition-function $default-transition-duration * .75
+			.slider-headline
+				transition-duration: $default-transition-duration * 2
+				color: inherit
+			.slider-subhead:not(:last-child)
+				margin-bottom: 0
+			.slider-subhead + .slider-headline
+				margin-top: 0
+		.slider-image
+			display: block
+			width: 100%
+			height: auto
+			position: absolute
+			+center(vertical)
+		&.slider-slide-waiting, &:not(.slider-slide-active):not(.slider-slide-done)
+			z-index: 1
+			transform: translateX(100%)
+			.slider-text
+				> *
+					transform: translateX(20%)
+		&.slider-slide-active
+			transform: translateX(0)
+			z-index: 3
+			.slider-text
+				> *
+					opacity: 1
+					transform: translateX(0)
+		&.slider-slide-done
+			z-index: 2
+			transform: translateX(-100%)
+			.slider-text
+				> *
+					transform: translateX(-20%)
+		&.slider-slide-done ~ &.slider-slide-active
+			z-index: 0
+	+breakpoint-min($breakpoint-s)
+		&:not(:first-child)
+			margin-top: $spacing-l
+		&:not(:last-child)
+			margin-bottom: $spacing-l
+	+breakpoint-min($breakpoint-m)
+		.slider-indicators
+			padding: $spacing-m 10%
+		.slider-slide
+			.slider-text
+				padding: $spacing-m 10% $spacing-m * 2 + $default-font-size

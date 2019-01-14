@@ -1,0 +1,16 @@
+.wrapper
+	margin-right: auto
+	margin-left: auto
+	padding-top: $spacing-s
+	padding-bottom: $spacing-xl
+	max-width: $max-content-width
+	position: relative
+	width: 100%
+	&.wrapper-slim
+		padding-top: $spacing-s
+		padding-bottom: $spacing-s
+	&.wrapper-bottom
+		position: absolute
+	+breakpoint-min($breakpoint-m)
+		padding-top: $spacing-xl
+		padding-bottom: $spacing-xxl

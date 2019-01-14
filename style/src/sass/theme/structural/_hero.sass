@@ -1,0 +1,30 @@
+.hero
+	padding: 0 $spacing-viewport-small
+	position: relative
+	background-color: $color-base
+	background: linear-gradient(25deg, mix($color-base, $color-brand, $multiplier_medium * 100%), $color-base, mix($color-base, $color-accent, $multiplier_medium * 100%))
+	height: auto
+	min-height: 100vh
+	display: flex
+	flex-flow: column nowrap
+	justify-content: center
+	.hero-text
+		color: $color-base-contrast
+		line-height: $default-line-height-multiplier
+		font-weight: $default-font-weight
+		font-size: $font-size-m
+	.button, a.button, a .button
+		&.button-ghost
+			border-color: $color-base-contrast
+			color: $color-base-contrast
+		&:hover, &:active
+			box-shadow: 0 0 0 $spacing-xs rgba($color-base-contrast, $multiplier_very_low)
+	+breakpoint-min($breakpoint-m)
+		padding: 0 $spacing-viewport-large
+		.hero-text
+			font-size: $font-size-xl
+	+supports-no('bug-free-flexbox')
+		display: block
+		+breakpoint-min($breakpoint-m)
+			.wrapper
+				transform: translateY(50%)

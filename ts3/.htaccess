@@ -1,0 +1,3 @@
+<FilesMatch "viewer\.php">
+	Allow from all
+</FilesMatch>

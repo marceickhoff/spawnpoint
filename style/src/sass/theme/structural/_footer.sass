@@ -1,0 +1,13 @@
+.footer
+	background: color-mod($color-base, 5)
+	font-size: $font-size-s
+	.footer-logo
+		display: block
+		width: 68px
+		height: 68px
+	a
+		font-weight: $default-font-weight-bold
+	+breakpoint-max($breakpoint-m)
+		text-align: center
+		.footer-logo
+			margin: 0 auto

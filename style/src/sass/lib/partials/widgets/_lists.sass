@@ -1,0 +1,28 @@
+ul, ol
+	&:not([class]), &.list
+		padding-left: $spacing-s
+		&:not(:first-child)
+			margin-top: $spacing-s
+		&:not(:last-child)
+			margin-bottom: $spacing-s
+		li
+			padding: $spacing-xxs 0
+ul
+	&:not([class]), &.list
+		list-style-type: disc
+ol
+	&:not([class]), &.list
+		list-style-type: decimal
+		li
+			padding: $spacing-xxs 0 0 $spacing-xs
+dl
+	&:not([class]), &.list
+		dt
+			font-size: $font-size-s
+			font-weight: $default-font-weight-bold
+			&:not(:first-child)
+				margin-top: $spacing-s
+		&:not(:first-child)
+			margin-top: $spacing-s
+		&:not(:last-child)
+			margin-bottom: $spacing-s

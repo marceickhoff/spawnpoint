@@ -1,0 +1,10 @@
+.group
+	@each $size, $breakpoint in ('nav':$breakpoint-nav, 's':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+		+breakpoint-max($breakpoint)
+			&.group-#{$size}-block
+				display: block
+				width: 100%
+				margin: 0
+				.group-item
+					display: block
+					margin: $spacing-s 0

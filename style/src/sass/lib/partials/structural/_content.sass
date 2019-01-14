@@ -1,0 +1,11 @@
+.content
+	padding: 0 $spacing-viewport-small
+	position: relative
+	&.content-shaded
+		background: color-mod($color-base, 5)
+	&.content-eyecatcher
+		background: $color-brand
+		*
+			color: $color-brand-contrast
+	+breakpoint-min($breakpoint-m)
+		padding: 0 $spacing-viewport-large

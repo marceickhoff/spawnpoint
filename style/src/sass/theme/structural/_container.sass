@@ -1,0 +1,12 @@
+.container
+	&.container-tight
+		&:not(:first-child)
+			margin-top: $spacing-xs
+		&:not(:last-child)
+			margin-bottom: $spacing-xs
+	+breakpoint-min($breakpoint-s)
+		&.container-tight
+			&:not(:first-child)
+				margin-top: $spacing-s
+			&:not(:last-child)
+				margin-bottom: $spacing-s

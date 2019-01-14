@@ -1,0 +1,22 @@
+@keyframes loading
+	from
+		transform: scale(.5)
+	to
+		transform: scale(1)
+.loading
+	width: $spacing-xs * 2 + $spacing-xxs
+	height: $spacing-xs
+	position: absolute
+	+center(both)
+.loading:before, .loading:after
+	content: ''
+	position: absolute
+	display: block
+	+size($spacing-xs)
+	background-color: color-mod($color-base, 4)
+	animation: loading $default-transition-duration $default-transition-function 0s infinite alternate both
+	border-radius: 100%
+.loading
+	&:after
+		animation-delay: $default-transition-duration / 2
+		left: $spacing-xs + $spacing-xxs

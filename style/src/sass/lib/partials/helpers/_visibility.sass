@@ -1,0 +1,9 @@
+.hidden
+	display: none !important
+@each $size, $breakpoint in ('nav':$breakpoint-nav, 's':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+	+breakpoint-min($breakpoint)
+		.hidden-#{$size}
+			display: none !important
+	+breakpoint-max($breakpoint)
+		.visible-#{$size}
+			display: none !important

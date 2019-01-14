@@ -1,0 +1,19 @@
+.header
+	padding: 0 $spacing-viewport-small
+	position: relative
+	.header-title
+		@if $headline-font-family != $default-font-family
+			font-family: $headline-font-family
+		@if $headline-font-weight != $default-font-weight
+			font-weight: $headline-font-weight
+		font-size: $font-size-l
+		@if $headline-font-color != $default-font-color
+			color: $headline-font-color
+	.wrapper
+		padding-top: $spacing-s
+		padding-bottom: $spacing-s
+	+breakpoint-min($breakpoint-s)
+		padding: 0 $spacing-viewport-large
+	+breakpoint-max($breakpoint-nav)
+		*:not(.nav) ~ &, body > &:first-child
+			display: none

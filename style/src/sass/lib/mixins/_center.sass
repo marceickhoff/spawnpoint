@@ -1,0 +1,11 @@
+=center($orientation:'both')
+	@if $orientation == 'vertical'
+		top: 50%
+		transform: translateY(-50%)
+	@if $orientation == 'horizontal'
+		left: 50%
+		transform: translateX(-50%)
+	@if $orientation == 'both'
+		left: 50%
+		top: 50%
+		transform: translateX(-50%) translateY(-50%)

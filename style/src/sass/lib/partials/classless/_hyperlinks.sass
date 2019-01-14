@@ -1,0 +1,12 @@
+a
+	cursor: pointer
+	text-decoration: none
+	color: $link-color
+	&:hover
+		color: $link-color-hover
+	@if $link-color-active != $link-color-hover
+		&:active
+			color: $link-color-active
+	@if $link-color-visited != $link-color
+		&:visited
+			color: $link-color-visited

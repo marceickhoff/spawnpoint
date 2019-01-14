@@ -1,0 +1,46 @@
+.hero
+	.hero-text
+		a
+			&.fancy
+				color: $color-canvas
+				background: -webkit-linear-gradient(left, $color-canvas, $color-canvas)
+				-webkit-background-clip: text
+				-webkit-text-fill-color: transparent
+				&:after
+					background: $color-canvas
+			&:hover
+				color: $color-brand
+				background: -webkit-linear-gradient(left, $color-brand, $color-accent)
+				-webkit-background-clip: text
+				-webkit-text-fill-color: transparent
+				&:after
+					transform: scaleX(0)
+					background-color: $link-color-hover
+a
+	&.fancy
+		display: inline-block
+		position: relative
+		color: $link-color
+		background: -webkit-linear-gradient(left, $link-color, $link-color)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+		font-weight: $default-font-weight-bold
+		&:after
+			content: ''
+			height: 2px
+			width: 100%
+			position: absolute
+			bottom: 0
+			left: 0
+			background: $link-color
+			transition-property: transform, background
+			transition-duration: $default-transition-duration
+			transition-timing-function: $default-transition-function
+		&:hover
+			color: $color-brand
+			background: -webkit-linear-gradient(left, $color-brand, $color-accent)
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+			&:after
+				transform: scaleX(0)
+				background-color: $link-color-hover

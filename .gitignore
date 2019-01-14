@@ -1,0 +1,7 @@
+node_modules/
+npm-debug.log
+.idea/
+*.ignore.*
+*.sqlite3
+spwn.ini
+content/img/avatars/*.jpg

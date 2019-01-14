@@ -1,0 +1,35 @@
+button.button, input[type=button].button, input[type=submit].button, input[type=reset].button
+	border: none
+	&::-moz-focus-inner //Preventing Firefox from adding 1px to each side of the button when class is used on <button> or <input> elements
+		border: 0
+		padding: 0
+	&:focus
+		outline: none
+.button, a.button, a .button
+	display: inline-block
+	font-family: $default-font-family
+	font-size: $font-size-xs
+	font-weight: $default-font-weight-bold
+	line-height: $default-line-height-multiplier
+	color: $color-accent-contrast
+	background-color: $color-brand
+	background: linear-gradient(to right, $color-brand, $color-accent)
+	cursor: pointer
+	text-align: center
+	white-space: nowrap
+	border-radius: 2rem
+	padding: $spacing-xs $spacing-m
+	transition-property: color, background-color, box-shadow, transform
+	transition-duration: $default-transition-duration
+	transition-timing-function: $default-transition-function
+	&:hover, &:active
+		box-shadow: 0 0 0 $spacing-xs rgba($color-accent, $multiplier_very_low)
+		transform: scale(.95)
+	&.button-ghost
+		background: transparent !important
+		color: $color-accent
+		border: $default-border-width $default-border-style $color-accent
+		padding: $spacing-xs - $default-border-width $spacing-s - $default-border-width
+	+breakpoint-max($breakpoint-m)
+		display: block
+		width: 100%

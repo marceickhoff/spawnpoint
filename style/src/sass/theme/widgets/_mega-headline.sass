@@ -1,0 +1,20 @@
+.mega-headline
+	font-size: 4rem
+	line-height: 4rem
+	color: $color-brand
+	text-transform: uppercase
+	font-weight: 900
+	font-style: italic
+	background: -webkit-linear-gradient($color-brand, $color-accent)
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	padding: 0 11px /* Correction for italic overlapping problem */
+	+breakpoint-min($breakpoint-s)
+		font-size: 6rem
+		line-height: 6rem
+	+breakpoint-min($breakpoint-m)
+		font-size: 4rem
+		line-height: 4rem
+	+breakpoint-min($breakpoint-l)
+		font-size: 8rem
+		line-height: 8rem

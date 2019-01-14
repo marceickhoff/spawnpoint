@@ -1,0 +1,87 @@
+@keyframes emit
+	from
+		transform: scale(1)
+		opacity: 1
+	to
+		transform: scale(2)
+		opacity: 0
+.tscounter
+	position: absolute
+	color: $color-base-contrast
+	font-weight: $default-font-weight-bold
+	display: block
+	right: $spacing-viewport-small
+	&:hover
+		color: $color-base-contrast
+	.tscounter-signal
+		content: ''
+		margin: $spacing-xxs $spacing-xs $spacing-xxs 0
+		height: $default-font-size
+		width: $default-font-size
+		display: block
+		float: left
+		border-radius: 100%
+		vertical-align: bottom
+		background-color: $color-base
+		transition: background-color $default-transition-duration $default-transition-function
+		position: relative
+	&.tscounter-active
+		.tscounter-signal
+			background-color: $color-success
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				border-radius: 100%
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+				background-color: rgba($color-success, $multiplier_high)
+				animation: emit 1s ease-out 0s infinite
+	+breakpoint-min($breakpoint-m)
+		font-size: $font-size-m
+		right: $spacing-viewport-large
+		.tscounter-signal
+			height: $font-size-m
+			width: $font-size-m
+.tsviewer
+	line-height: 1.5
+	table
+		display: block
+		width: 100%
+	.prefix, img, .query, .host, table:not([id^="ts3_h_s1_"]), #ts3_h_s1_ch335, #ts3_h_s1_ch32, #ts3_h_s1_ch336, #ts3_h_s1_ch268
+		display: none
+	.spacer
+		height: $spacing-xs
+	.channel
+		font-weight: $default-font-weight-bold
+		color: $headline-font-color
+	.client
+		padding-left: $spacing-xs
+	.tsviewer-signal
+		margin: $spacing-xxs / 2 $spacing-xs $spacing-xxs / 2 0
+		height: ($default-line-height-multiplier * $default-font-size) / 2
+		width: ($default-line-height-multiplier * $default-font-size) / 2
+		display: block
+		float: left
+		border-radius: 100%
+		vertical-align: bottom
+		position: relative
+		background-color: color-mod($color-base, 4)
+		&.tsviewer-signal-active
+			background-color: $color-success
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				border-radius: 100%
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+				background-color: rgba($color-success, $multiplier_medium)
+				animation: emit 1s ease-out 0s infinite
+#col-tsviewer
+	+breakpoint-max($breakpoint-nav)
+		order: 1

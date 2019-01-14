@@ -1,0 +1,12 @@
+{
+	"classPrefix": "supports-",
+	"options": [
+		"addTest",
+		"setClasses"
+	],
+	"feature-detects": [
+		"test/css/flexbox",
+		"test/css/transforms",
+		"test/css/transforms3d"
+	]
+}

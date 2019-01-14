@@ -1,0 +1,289 @@
+// Multipliers
+
+$multiplier_very_high: .9 !default
+$multiplier_high:      .75 !default
+$multiplier_medium:    .5 !default
+$multiplier_low:       .25 !default
+$multiplier_very_low:  .1 !default
+
+
+// Main colors
+
+$color-base:    rgb(60, 60, 70) !default
+$color-canvas:  #fff !default
+$color-brand:   rgb(120, 150, 180) !default
+$color-accent:  rgb(60, 170, 240) !default
+$color-danger:  rgb(240, 0, 60) !default
+$color-warning: rgb(240, 170, 0) !default
+$color-success: rgb(0, 170, 60) !default
+$color-notice:  rgb(60, 170, 240) !default
+$color-muted:   rgba($color-base, $multiplier_low) !default
+
+// Bourbon settings
+
+$bourbon: ("contrast-switch-dark-color":$color-base, "contrast-switch-light-color":$color-canvas, "modular-scale-base":1rem, "modular-scale-ratio":$minor-third)
+
+
+// Contrast colors
+
+$color-base-contrast:    $color-canvas !default
+$color-canvas-contrast:  $color-base !default
+$color-brand-contrast:   $color-canvas !default
+$color-accent-contrast:  $color-canvas !default
+$color-danger-contrast:  $color-canvas !default
+$color-warning-contrast: $color-canvas !default
+$color-success-contrast: $color-canvas !default
+$color-notice-contrast:  $color-canvas !default
+$color-muted-contrast:   $color-base !default
+
+
+// Modernizr prefix
+
+$enable-modernizr: true !default
+$modernizr-prefix: "supports-" !default
+
+
+// Font sizes
+
+$font-size-xxs: modular-scale(-1) !default
+$font-size-xs:  modular-scale(0) !default
+$font-size-s:   modular-scale(1) !default
+$font-size-m:   modular-scale(2) !default
+$font-size-l:   modular-scale(3) !default
+$font-size-xl:  modular-scale(4) !default
+$font-size-xxl: modular-scale(6) !default
+
+
+// Default font
+
+$default-font-color:       color-mod($color-base, 2) !default
+$default-font-family:      "Lato", sans-serif !default
+$default-font-size:        $font-size-xs !default
+$default-font-weight:      200 !default
+$default-font-weight-bold: 500 !default
+
+
+// Headlines
+
+$headline-font-color:  $color-base !default
+$headline-font-family: inherit !default
+$headline-font-weight: 900 !default
+
+
+// Monospace font
+
+$monospace-font-color:       $default-font-color !default
+$monospace-font-background:  color-mod($color-base, 5) !default
+$monospace-font-family:      monospace !default
+$monospace-font-size:        $default-font-size !default
+$monospace-font-weight:      normal !default
+
+
+// Line height
+
+$default-line-height-multiplier:    $minor-seventh !default
+$headline-line-height-multiplier: $major-third !default
+
+
+// Links
+
+$link-color:         $color-accent !default
+$link-color-hover:   color-mod($color-accent, 2) !default
+$link-color-active:  $link-color-hover !default
+$link-color-visited: $link-color !default
+
+
+// Z-index
+
+$z-index-nav:    10
+$z-index-modal:  100
+
+
+// General spacing
+
+$spacing-xxs: map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * .25 !default
+$spacing-xs:  map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * .5 !default
+$spacing-s:   map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * 1 !default
+$spacing-m:   map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * 1.5 !default
+$spacing-l:   map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * 2 !default
+$spacing-xl:  map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * 3.5 !default
+$spacing-xxl: map-get($bourbon, "modular-scale-base") * $default-line-height-multiplier * 4 !default
+
+
+// Spacing to viewport
+
+$spacing-viewport-large: $spacing-l !default
+$spacing-viewport-small: $spacing-s !default
+
+
+// Default borders
+
+$default-border-width:  1 / 16 * 1rem !default
+$default-border-style:  solid !default
+$default-border-color:  color-mod($color-base, 4) !default
+$default-border-radius: 3 / 16 * 1rem !default
+
+
+// Light borders
+
+$light-border-width:  $default-border-width !default
+$light-border-style:  solid !default
+$light-border-color:  color-mod($color-base, 5) !default
+$light-border-radius: $default-border-radius !default
+
+
+// Default transitions
+
+$default-transition-duration: .33s !default
+$default-transition-function: cubic-bezier(.85, 0, .5, 1) !default
+
+
+// Slow transitions
+
+$slow-transition-duration: 1s !default
+$slow-transition-function: $default-transition-function !default
+
+
+// Quick transitions
+
+$quick-transition-duration: .1s !default
+$quick-transition-function: $default-transition-function !default
+
+
+// Grid system
+
+$grid-size: 12 !default
+
+
+// Breakpoints
+
+$breakpoint-s:       480px !default
+$breakpoint-m:       720px !default
+$breakpoint-l:       1180px !default
+$breakpoint-nav:     $breakpoint-m !default // When to switch between desktop and mobile layout
+
+
+// Content width constraints
+
+$max-content-width: $breakpoint-l !default
+$max-content-width-narrow: 900px !default
+
+
+// Nav font for drawer mode
+
+$nav-title-font-size-drawer: $font-size-m !default
+
+$nav-font-size-drawer: $font-size-xs !default
+
+
+// Nav font
+
+$nav-font-size: $font-size-s !default
+
+$nav-title-font-size: $font-size-m !default
+$nav-title-font-weight: $headline-font-weight !default
+$nav-title-font-family: $headline-font-family !default
+
+
+// Nav sizes for drawer mode
+
+$nav-brand-v-padding-drawer: $spacing-xs !default
+$nav-brand-h-padding-drawer: $spacing-s !default
+
+$nav-height-drawer: 4rem !default
+$nav-height-initial-drawer: $nav-height-drawer !default
+
+$nav-item-h-padding-drawer: $spacing-s !default
+$nav-item-v-padding-drawer: $spacing-s !default //in drawer
+
+$nav-hamburger-width: 2rem !default
+$nav-hamburger-height: 1.25rem !default
+$nav-hamburger-bar-height: 3 / 16 * 1rem !default
+$nav-hamburger-bar-radius: $default-border-radius !default
+
+$nav-drawer-padding-top: 0 !default
+$nav-drawer-padding-bottom: $spacing-s !default
+
+
+// Nav sizes
+
+$nav-brand-v-padding: $spacing-xs !default
+$nav-brand-h-padding: $spacing-l !default
+
+$nav-height: $nav-height-drawer !default
+$nav-height-initial: 6rem !default
+
+$nav-item-h-padding: $spacing-s !default
+
+
+// Nav colors for drawer mode
+
+$nav-brand-title-color-drawer: $color-canvas-contrast !default
+
+$nav-hamburger-color: $color-base !default
+$nav-hamburger-color-active: $nav-hamburger-color !default
+
+$nav-background-drawer: $color-canvas !default
+
+$nav-link-color-drawer: $color-canvas-contrast !default
+$nav-link-color-hover-drawer: $nav-link-color-drawer !default
+$nav-link-color-highlighted-drawer: $nav-link-color-drawer !default
+$nav-link-color-highlighted-hover-drawer: $nav-link-color-drawer !default
+
+$nav-item-background-drawer: transparent !default
+$nav-item-background-hover-drawer: $nav-item-background-drawer !default
+$nav-item-background-highlighted-drawer: $nav-item-background-drawer !default
+$nav-item-background-highlighted-hover-drawer: $nav-item-background-hover-drawer !default
+
+
+// Nav colors
+
+$nav-brand-title-color: $color-canvas-contrast !default
+
+$nav-background: $nav-background-drawer !default
+
+$nav-link-color: $nav-link-color-drawer !default
+$nav-link-color-hover: $nav-link-color !default
+$nav-link-color-highlighted: $nav-link-color !default
+$nav-link-color-highlighted-hover: $nav-link-color !default
+
+$nav-item-background: transparent !default
+$nav-item-background-hover: $nav-item-background !default
+$nav-item-background-highlighted: $nav-item-background !default
+$nav-item-background-highlighted-hover: $nav-item-background !default
+
+
+// Toggle subnav integration
+
+$enable-subnav: true !default //Disable to save some space when you're not using it anyway
+
+
+// Subnav colors for drawer mode
+
+$subnav-background-drawer: color-mod($color-base, 5) !default
+$subnav-link-color-drawer: $nav-link-color-drawer !default
+$subnav-link-color-hover-drawer: $subnav-link-color-drawer !default
+$subnav-link-color-highlighted-drawer: $subnav-link-color-drawer !default
+$subnav-link-color-highlighted-hover-drawer: $subnav-link-color-drawer !default
+$subnav-item-background-drawer: transparent !default
+$subnav-item-background-hover-drawer: $subnav-item-background-drawer !default
+$subnav-item-background-highlighted-drawer: $subnav-item-background-drawer !default
+$subnav-item-background-highlighted-hover-drawer: $subnav-item-background-drawer !default
+
+
+// Subnav colors
+
+$subnav-background: $subnav-background-drawer !default
+$subnav-link-color: $nav-link-color-drawer !default
+$subnav-link-color-hover: $subnav-link-color !default
+$subnav-link-color-highlighted: $subnav-link-color !default
+$subnav-link-color-highlighted-hover: $subnav-link-color !default
+$subnav-item-background: transparent !default
+$subnav-item-background-hover: $subnav-item-background !default
+$subnav-item-background-highlighted: $subnav-item-background !default
+$subnav-item-background-highlighted-hover: $subnav-item-background !default
+
+
+// Slider
+
+$slider-default-height: 25rem !default

@@ -1,0 +1,18 @@
+.ta-left
+	text-align: left
+.ta-right
+	text-align: right
+.ta-center
+	text-align: center
+.ta-justify
+	text-align: justify
+@each $size, $breakpoint in ('nav':$breakpoint-nav, 's':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+	+breakpoint-min($breakpoint)
+		.ta-#{$size}-left
+			text-align: left
+		.ta-#{$size}-right
+			text-align: right
+		.ta-#{$size}-center
+			text-align: center
+		.ta-#{$size}-justify
+			text-align: justify

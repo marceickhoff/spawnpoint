@@ -1,0 +1,482 @@
+.nav
+	position: absolute
+	width: 100%
+	top: auto
+	left: 0
+	z-index: $z-index-nav
+	padding: 0 $spacing-viewport-small
+	&:before
+		content: ''
+		position: absolute
+		bottom: 100%
+		top: 0
+		left: 0
+		background: $nav-background-drawer
+		@if $nav-background-drawer != $nav-background
+			transition: background $default-transition-duration $default-transition-function
+		height: inherit
+		width: 100%
+	@if ($nav-height-drawer != $nav-height-initial-drawer or $nav-height != $nav-height-initial or $nav-height-drawer != $nav-height)
+		transition: height $default-transition-duration $default-transition-function
+	height: $nav-height-initial-drawer
+	&+*
+		padding-top: $nav-height-initial-drawer
+	@if ($nav-font-size-drawer == $default-font-size)
+		font-size: $nav-font-size-drawer
+	&.nav-fixed
+		position: fixed
+		top: 0
+		&.nav-opened
+			&:before
+				height: 100%
+	&.nav-opened, &.nav-fixed
+		@if ($nav-height-drawer != $nav-height-initial-drawer)
+			height: $nav-height-drawer
+		.nav-wrapper
+			.nav-brand
+				.nav-brand-link
+					&:not(:only-child)
+						transform: translateY(-100%)
+						&:nth-child(1)
+							opacity: 0
+						&:nth-child(2)
+							opacity: 1
+	.nav-wrapper
+		margin-right: auto
+		margin-left: auto
+		max-width: $max-content-width
+		position: relative
+		height: inherit
+		.nav-brand
+			height: 100%
+			overflow: hidden
+			.nav-brand-link
+				max-width: 100%
+				.nav-brand-link-with-text
+					display: flex
+					.nav-brand-title
+						align-self: center
+					+supports-no('flexbox')
+						display: table
+						*
+							vertical-align: middle
+				display: block
+				position: relative
+				@if ($nav-brand-v-padding-drawer != $nav-brand-v-padding)
+					transition-property: opacity, transform, padding
+				@else
+					transition-property: opacity, transform
+				transition-duration: $default-transition-duration
+				transition-timing-function: $default-transition-function
+				padding: $nav-brand-v-padding-drawer 0
+				height: 100%
+				.nav-brand-logo
+					display: block
+					height: auto
+					max-height: 100%
+					max-width: 100%
+				.nav-brand-title
+					white-space: nowrap
+					@if ($nav-title-font-size-drawer != $default-font-size)
+						font-size: $nav-title-font-size-drawer
+					@if ($nav-title-font-family != $default-font-weight)
+						font-weight: $nav-title-font-weight
+					@if ($nav-title-font-family != $default-font-family)
+						font-family: $nav-title-font-family
+					@if $nav-brand-title-color-drawer != $nav-brand-title-color
+						transition: color $default-transition-duration $default-transition-function
+					color: $nav-brand-title-color-drawer
+				*:not(:first-child)
+					margin-left: $spacing-s
+				&:not(:first-child)
+					opacity: 0
+				&:only-child
+					.nav-brand-title
+						transition: font-size $default-transition-duration $default-transition-function
+		.nav-list
+			.nav-item
+				position: relative
+				white-space: nowrap
+				.nav-link
+					cursor: pointer
+					transition-property: color, background, padding-top, padding-bottom
+					transition-duration: $default-transition-duration
+					transition-timing-function: $default-transition-function
+					background: $nav-item-background-drawer
+					color: $nav-link-color-drawer
+				.nav-search
+					padding: $spacing-xs 0
+					color: $nav-link-color
+					.nav-search-input
+						background: transparent
+						font: inherit
+						font-size: $font-size-s
+						border: none
+						color: inherit
+						border-bottom: $default-border-width $default-border-style $nav-link-color
+						position: relative
+						width: 100%
+						&::placeholder
+							color: inherit
+							opacity: .5
+						&::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+							display: none
+					.nav-search-submit
+						position: absolute
+						width: $spacing-m
+						+center(vertical)
+						font: inherit
+						background: transparent
+						border: none
+						color: inherit
+						font-size: $font-size-m
+						&:hover
+							cursor: pointer
+				@if $enable-subnav
+					.subnav
+						overflow: hidden
+						height: 0
+						transition-property: height, opacity, border-radius
+						transition-duration: $default-transition-duration
+						transition-timing-function: $default-transition-function
+						background: $subnav-background
+						&:not(.subnav-drawer)
+							min-width: 100%
+							.subnav-item .subnav-link
+								display: block
+								white-space: nowrap
+	+supports-no(flexbox)
+		.nav-wrapper
+			.nav-brand
+				.nav-brand-link
+					display: block
+					*
+						float: left
+					.nav-brand-title
+						position: relative
+						+center(vertical)
+	+breakpoint-max($breakpoint-nav)
+		&:before
+			@if $nav-background-drawer != $nav-background
+				background: $nav-background-drawer
+		.nav-wrapper
+			.nav-toggle
+				height: 100%
+				width: $nav-hamburger-width
+				align-self: center
+				cursor: pointer
+				right: 0
+				position: relative
+				z-index: 2
+				.nav-toggle-button
+					display: block
+					height: 100%
+					width: inherit
+					position: absolute
+					border: none
+					padding: 0
+					background: transparent
+					cursor: pointer
+					.nav-hamburger
+						display: block
+						height: $nav-hamburger-bar-height
+						width: inherit
+						background: $nav-hamburger-color
+						transition: background $default-transition-duration $default-transition-function
+						top: (($nav-hamburger-height - $nav-hamburger-bar-height) / 2) + (($nav-height-drawer - $nav-hamburger-height) / 2)
+						position: absolute
+						@if ($nav-hamburger-bar-radius > 0)
+							border-radius: $nav-hamburger-bar-radius
+						&:after, &:before
+							content: ''
+							position: absolute
+							background: $nav-hamburger-color
+							height: inherit
+							width: inherit
+							border-radius: inherit
+							display: block
+							@if $nav-hamburger-color != $nav-hamburger-color-active
+								transition-property: top, background, transform
+							@else
+								transition-property: top, transform
+							transition-duration: $default-transition-duration
+							transition-timing-function: $default-transition-function
+						&:before
+							top: (($nav-hamburger-height - $nav-hamburger-bar-height) / 2) * -1
+						&:after
+							top: ($nav-hamburger-height - $nav-hamburger-bar-height) / 2
+			.nav-brand
+				padding: 0 $nav-brand-h-padding-drawer + $nav-hamburger-width
+				z-index: 1
+				top: 0
+				position: absolute
+				width: 100%
+				.nav-brand-link
+					justify-content: center
+			.nav-list
+				position: fixed
+				z-index: -1
+				right: 100%
+				width: 100%
+				height: 100%
+				top: 0
+				overflow-y: auto
+				background: $nav-background
+				transition: transform $default-transition-duration $default-transition-function
+				padding: $nav-height-drawer + $nav-drawer-padding-top 0 $nav-drawer-padding-bottom
+				.nav-item
+					.nav-search
+						position: absolute
+						bottom: 0
+						width: 100%
+						@if ($breakpoint-nav == $breakpoint-m)
+							padding: $nav-item-v-padding-drawer $nav-item-h-padding-drawer
+						@else
+							padding-top: $nav-item-v-padding-drawer
+							padding-bottom: $nav-item-v-padding-drawer
+						.nav-search-input
+							padding-left: $spacing-s
+							width: 100%
+						.nav-search-submit
+							right: $nav-item-h-padding-drawer
+					.nav-link
+						display: block
+						@if ($breakpoint-nav == $breakpoint-m)
+							padding: $nav-item-v-padding-drawer $nav-item-h-padding-drawer
+						@else
+							padding-top: $nav-item-v-padding-drawer
+							padding-bottom: $nav-item-v-padding-drawer
+					&:hover
+						.nav-link
+							@if $nav-item-background-drawer != $nav-item-background-hover-drawer
+								background: $nav-item-background-hover-drawer
+							@if  $nav-link-color-drawer != $nav-link-color-hover-drawer
+								color: $nav-link-color-hover-drawer
+					&.nav-item-active
+						@if $nav-link-color-drawer != $nav-link-color-highlighted-drawer
+							color: $nav-link-color-highlighted-drawer
+						@if $nav-item-background-drawer != $nav-item-background-highlighted-drawer
+							background: $nav-item-background-highlighted-drawer
+						@if $nav-item-background-highlighted-hover-drawer != $nav-item-background-highlighted-drawer or $nav-link-color-highlighted-hover-drawer != $nav-link-color-highlighted-drawer
+							&:hover
+								.nav-link
+									@if $nav-link-color-highlighted-drawer != $nav-link-color-highlighted-hover-drawer
+										color: $nav-link-color-highlighted-hover-drawer
+									@if $nav-item-background-highlighted-hover-drawer != $nav-item-background-highlighted-drawer
+										background: $nav-item-background-highlighted-hover-drawer
+					@if $enable-subnav
+						&.nav-item-has-subnav
+							&.nav-item-subnav-opened
+								.nav-link
+									background: $nav-item-background-hover-drawer
+						&:not(.nav-item-subnav-opened)
+							.nav-link
+								&:hover
+									background: transparent !important
+						.subnav
+							&:not(.subnav-drawer)
+								background: $subnav-background-drawer
+								.subnav-item
+									.subnav-link
+										color: $subnav-link-color-drawer
+										padding: $nav-item-v-padding-drawer $nav-item-h-padding-drawer $nav-item-v-padding-drawer $nav-item-h-padding-drawer * 2
+										&:hover
+											@if $subnav-link-color-hover-drawer != $subnav-link-color-drawer
+												color: $subnav-link-color-hover-drawer
+		&.nav-opened
+			.nav-wrapper
+				.nav-toggle
+					.nav-toggle-button
+						.nav-hamburger
+							background: rgba($nav-hamburger-color, 0)
+							&:after, &:before
+								@if $nav-hamburger-color != $nav-hamburger-color-active
+									background: $nav-hamburger-color-active
+							&:before
+								top: 0
+								transform: rotate(45deg)
+							&:after
+								top: 0
+								transform: rotate(-45deg)
+				.nav-list
+					transform: translateX(100%)
+		+supports-no(flexbox)
+			.nav-wrapper
+				.nav-brand
+					.nav-brand-link
+						display: block
+						position: absolute
+						left: 50%
+						transform: translateX(-50%)
+						&:not(:only-child):nth-child(2)
+							top: 100%
+			&.nav-opened, &.nav-fixed
+				.nav-brand
+					.nav-brand-link
+						left: 50%
+						&:not(:only-child)
+							transform: translateY(-100%) translateX(-50%)
+	@if ($breakpoint-nav != $breakpoint-m)
+		+breakpoint-max($breakpoint-m)
+			.nav-wrapper
+				.nav-list
+					.nav-item
+						.nav-link
+							padding-right: $nav-item-h-padding-drawer
+							padding-left: $nav-item-h-padding-drawer
+		+breakpoint-min($breakpoint-m)
+			padding: 0 $spacing-viewport-large
+	+breakpoint-min($breakpoint-nav)
+		@if ($breakpoint-nav == $breakpoint-m)
+			padding: 0 $spacing-viewport-large
+		@if ($nav-font-size != $default-font-size)
+			font-size: $nav-font-size
+		@if ($nav-height-initial != $nav-height-initial-drawer)
+			height: $nav-height-initial
+		&:before
+			@if $nav-background-drawer != $nav-background
+				background: $nav-background
+		&+ *
+			@if ($nav-height-initial != $nav-height-initial-drawer)
+				padding-top: $nav-height-initial
+		&.nav-fixed
+			@if ($nav-height != $nav-height-initial)
+				height: $nav-height
+			.nav-wrapper
+				.nav-list
+					height: 100%
+					.nav-item
+						.nav-link
+							padding: ($nav-height - $nav-font-size * $default-line-height-multiplier) / 2 $nav-item-h-padding
+		.nav-wrapper
+			display: flex
+			flex-flow: row nowrap
+			justify-content: space-between
+			.nav-toggle
+				display: none
+			.nav-brand
+				.nav-brand-link
+					@if ($nav-brand-v-padding-drawer != $nav-brand-v-padding)
+						padding: $nav-brand-v-padding 0
+					.nav-brand-title
+						@if ($nav-title-font-size != $nav-title-font-size-drawer and $nav-title-font-size != $default-font-size)
+							font-size: $nav-title-font-size
+						@if $nav-brand-title-color-drawer != $nav-brand-title-color
+							color: $nav-brand-title-color
+			.nav-list
+				position: relative
+				display: flex
+				flex-flow: row nowrap
+				justify-content: flex-end
+				height: inherit
+				top: 50%
+				transform: translateY(-50%)
+				.nav-item
+					display: block
+					height: inherit
+					.nav-search
+						opacity: 0
+						position: fixed
+						top: 0
+						right: 0
+						width: 0
+						height: 100%
+						overflow: hidden
+						background: $nav-background
+						padding: $spacing-xs 0
+						color: $nav-link-color
+						transition-duration: $default-transition-duration
+						transition-property: width, padding, opacity
+						transition-timing-function: $default-transition-function
+						.nav-search-input
+							text-align: center
+							+center
+						.nav-search-submit
+							right: $nav-item-h-padding
+						&.nav-search-opened
+							opacity: 1
+							width: 100%
+							padding: $spacing-xs $spacing-s + $spacing-m + $spacing-s $spacing-xs $spacing-s
+					.nav-link
+						display: block
+						height: inherit
+						padding: ($nav-height-initial - $nav-font-size * $default-line-height-multiplier) / 2 $nav-item-h-padding
+						@if $nav-item-background != $nav-item-background-drawer
+							background: $nav-item-background
+						@if $nav-link-color != $nav-link-color-drawer
+							color: $nav-link-color
+					&:hover
+						.nav-link
+							@if $nav-item-background != $nav-item-background-hover
+								background: $nav-item-background-hover
+							@if $nav-link-color != $nav-link-color-hover
+								color: $nav-link-color-hover
+					&.nav-item-active
+						@if $nav-link-color != $nav-link-color-highlighted
+							color: $nav-link-color-highlighted
+						@if $nav-item-background != $nav-item-background-highlighted
+							background: $nav-item-background-highlighted
+						&:hover
+							.nav-link
+								@if $nav-link-color-highlighted-hover != $nav-link-color-highlighted
+									color: $nav-link-color-highlighted-hover
+								@if $nav-item-background-highlighted-hover != $nav-item-background-highlighted
+									background: $nav-item-background-highlighted-hover
+					@if $enable-subnav
+						&.nav-item-has-subnav
+							&:after
+								content: ''
+								height: 0
+								width: 0
+								border-bottom: $spacing-xs solid $subnav-background
+								border-left: $spacing-xs solid transparent
+								border-right: $spacing-xs solid transparent
+								transition-property: transform, opacity
+								transition-duration: $default-transition-duration
+								transition-timing-function: $default-transition-function
+								position: absolute
+								bottom: 0
+								left: 50%
+								transform: scale(0) translateX(-50%)
+								transform-origin: 0 100%
+								opacity: 0
+							&.nav-item-subnav-opened
+								.nav-link
+									background: $nav-item-background-hover
+								&:after
+									opacity: 1
+									transform: scale(1) translateX(-50%)
+								.subnav
+									opacity: 1
+						.subnav
+							opacity: 0
+							@if $default-border-radius > 0
+								border-radius: $default-border-radius
+							&:not(.subnav-drawer)
+								position: absolute
+								left: 0
+								top: 100%
+								.subnav-item
+									.subnav-link
+										color: $subnav-link-color
+										padding: $spacing-xs $nav-item-h-padding
+										&:hover
+											@if $subnav-link-color-hover != $subnav-link-color
+												color: $subnav-link-color-hover
+									&:hover
+										background: $subnav-background
+								&.subnav-overflow
+									left: initial
+									right: 0
+		+supports-no(flexbox)
+			.nav-wrapper
+				display: block
+				.nav-brand
+					position: absolute
+					top: 0
+					left: 0
+				.nav-list
+					display: block
+					+clearfix
+					.nav-item
+						float: right

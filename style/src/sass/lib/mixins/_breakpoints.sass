@@ -1,0 +1,6 @@
+=breakpoint-min($breakpoint, $media:all)
+	@media #{$media} and (min-width: $breakpoint)
+		@content
+=breakpoint-max($breakpoint, $media:all)
+	@media #{$media} and (max-width: $breakpoint)
+		@content

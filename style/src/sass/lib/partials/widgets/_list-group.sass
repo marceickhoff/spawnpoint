@@ -1,0 +1,25 @@
+.list-group
+	&:not(:first-child)
+		margin-top: $spacing-m
+	&:not(:last-child)
+		margin-bottom: $spacing-m
+	+breakpoint-min($breakpoint-s)
+		&:not(:first-child)
+			margin-top: $spacing-l
+		&:not(:last-child)
+			margin-bottom: $spacing-l
+	.list-group-item
+		border-top: $default-border-width $default-border-style $default-border-color
+		border-right: $default-border-width $default-border-style $default-border-color
+		border-left: $default-border-width $default-border-style $default-border-color
+		border-style: $default-border-style
+		border-color: $default-border-color
+		padding: $spacing-xs - $default-border-width $spacing-xs - $default-border-width $spacing-xs $spacing-xs - $default-border-width
+		&:first-child
+			border-top-left-radius: $default-border-radius
+			border-top-right-radius: $default-border-radius
+		&:last-child
+			border-bottom-left-radius: $default-border-radius
+			border-bottom-right-radius: $default-border-radius
+			border-bottom: $default-border-width $default-border-style $default-border-color
+			padding-bottom: $spacing-xs - $default-border-width

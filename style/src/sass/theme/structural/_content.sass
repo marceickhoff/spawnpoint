@@ -1,0 +1,10 @@
+.content
+	&.content-shaded
+		background-color: color-mod($color-base, 5)
+		hr
+			border-top-color: color-mod($color-base, 4)
+	&.content-eyecatcher
+		.wrapper
+			padding: $spacing-xxl + $spacing-l 0
+		background-color: $color-base
+		background: linear-gradient(25deg, mix($color-base, $color-brand, $multiplier_medium * 100%), $color-base, mix($color-base, $color-accent, $multiplier_medium * 100%))

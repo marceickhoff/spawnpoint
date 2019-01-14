@@ -1,0 +1,12 @@
+p, address, blockquote
+	&:not(:first-child)
+		margin-top: $spacing-xs
+	&:not(:last-child)
+		margin-bottom: $spacing-s
+blockquote
+	border-left: $default-border-width $default-border-style $default-border-color
+	padding-left: $spacing-s - $default-border-width
+strong
+	font-weight: $default-font-weight-bold
+em
+	font-style: italic

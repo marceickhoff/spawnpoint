@@ -1,0 +1,30 @@
+.card
+	position: relative
+	overflow: hidden
+	@if $light-border-radius > 0
+		border-top-left-radius: $light-border-radius
+		border-top-right-radius: $light-border-radius
+	&:not(:first-child)
+		margin-top: $spacing-m
+	&:not(:last-child)
+		margin-bottom: $spacing-m
+	.card-image
+		width: 100%
+		height: auto
+		display: block
+	.card-text
+		border: $light-border-width $light-border-style $light-border-color
+		padding: $spacing-s $spacing-s $spacing-s $spacing-s - $spacing-xxs
+		border-top: none
+		@if $light-border-radius > 0
+			border-bottom-left-radius: $light-border-radius
+			border-bottom-right-radius: $light-border-radius
+	+breakpoint-min($breakpoint-s)
+		&:not(:first-child)
+			margin-top: $spacing-l
+		&:not(:last-child)
+			margin-bottom: $spacing-l
+a .card
+	transition: transform $default-transition-duration $default-transition-function
+	&:hover
+		transform: scale(1.1)

@@ -1,0 +1,14 @@
+=supports($feature)
+	@if &
+		.#{$modernizr-prefix}#{$feature} &
+			@content
+	@else
+		.#{$modernizr-prefix}#{$feature}
+			@content
+=supports-no($feature)
+	@if &
+		.#{$modernizr-prefix}no-#{$feature} &
+			@content
+	@else
+		.#{$modernizr-prefix}no-#{$feature}
+			@content

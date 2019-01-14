@@ -1,0 +1,94 @@
+button.button, input[type=button].button, input[type=submit].button, input[type=reset].button
+	border: none
+	&::-moz-focus-inner //Preventing Firefox from adding 1px to each side of the button when class is used on <button> or <input> elements
+		border: 0
+		padding: 0
+	&:focus
+		outline: none
+.button, a.button
+	display: inline-block
+	font-family: $default-font-family
+	font-size: $font-size-xs
+	font-weight: $default-font-weight-bold
+	line-height: $default-line-height-multiplier
+	color: $color-accent-contrast
+	background-color: $color-accent
+	cursor: pointer
+	text-align: center
+	white-space: nowrap
+	@if $default-border-radius
+		border-radius: $default-border-radius
+	padding: $spacing-xs $spacing-s
+	transition-property: color, background-color, border-color
+	transition-duration: $default-transition-duration
+	transition-timing-function: $default-transition-function
+	&.button-ghost, &.button-link
+		background: transparent !important
+		color: $color-accent
+	&.button-ghost
+		border: $default-border-width $default-border-style $color-accent
+		padding: $spacing-xs - $default-border-width $spacing-s - $default-border-width
+	&.button-small
+		padding: $spacing-xxs $spacing-xs
+		&.button-ghost
+			padding: $spacing-xxs - $default-border-width $spacing-xs - $default-border-width
+	&.brand
+		background-color: $color-brand
+		color: $color-brand-contrast
+		&.button-ghost, &.button-link
+			color: $color-brand
+		&.button-ghost
+			border-color: $color-brand
+	&.base
+		background-color: $color-base
+		color: $color-base-contrast
+		&.button-ghost, &.button-link
+			color: $color-base
+		&.button-ghost
+			border-color: $color-base
+	&.canvas
+		background-color: $color-canvas
+		color: $color-canvas-contrast
+		&.button-ghost, &.button-link
+			color: $color-canvas
+		&.button-ghost
+			border-color: $color-canvas
+	&.danger
+		background-color: $color-danger
+		color: $color-danger-contrast
+		&.button-ghost, &.button-link
+			color: $color-danger
+		&.button-ghost
+			border-color: $color-danger
+	&.warning
+		background-color: $color-warning
+		color: $color-warning-contrast
+		&.button-ghost, &.button-link
+			color: $color-warning
+		&.button-ghost
+			border-color: $color-warning
+	&.success
+		background-color: $color-success
+		color: $color-success-contrast
+		&.button-ghost, &.button-link
+			color: $color-success
+		&.button-ghost
+			border-color: $color-success
+	&.notice
+		background-color: $color-notice
+		color: $color-notice-contrast
+		&.button-ghost, &.button-link
+			color: $color-notice
+		&.button-ghost
+			border-color: $color-notice
+	&.muted, &[disabled]
+		background-color: $color-muted
+		color: $color-muted-contrast
+		cursor: not-allowed
+		&.button-ghost, &.button-link
+			color: $color-muted
+		&.button-ghost
+			border-color: $color-muted
+	+breakpoint-max($breakpoint-s)
+		display: block
+		width: 100%

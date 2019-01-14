@@ -1,0 +1,26 @@
+.form
+	&:not(:first-child)
+		margin-top: $spacing-xs
+	&:not(:last-child)
+		margin-bottom: $spacing-s
+	.form-row
+		&:not(:first-child)
+			margin-top: $spacing-xs
+		&:not(:last-child)
+			margin-bottom: $spacing-xs
+		input, textarea, label
+			display: block
+			width: 100%
+		&:hover
+			input, textarea
+				border-color: $link-color-hover
+			label
+				color: $link-color-hover
+	.form-fieldset
+		margin: $spacing-m 0
+		.form-legend
+			font-family: $headline-font-family
+			color: $headline-font-color
+			font-weight: $headline-font-weight
+			line-height: $headline-line-height-multiplier
+			font-size: $font-size-m

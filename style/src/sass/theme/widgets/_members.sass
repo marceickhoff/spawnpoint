@@ -1,0 +1,94 @@
+.member
+	h4
+		margin-bottom: 0
+	p
+		line-height: 1.5
+		margin-top: ($default-line-height-multiplier - 1.5) * $default-font-size
+	.member-avatar
+		display: block
+		width: 100%
+		overflow: hidden
+		background-color: color-mod($color-base, 5)
+		position: relative
+		cursor: default
+		max-width: 184px
+		max-height: 184px
+		margin: 0 auto
+		&:before
+			content: ''
+			top: 0
+			left: 0
+			position: absolute
+			width: 100%
+			height: 100%
+			background: url('../../../content/img/loading.svg') center no-repeat
+			background-size: 64px 64px
+			animation: loading 1s $default-transition-function 0s infinite
+			z-index: 0
+		.member-avatar-link
+			display: none
+		.member-avatar-image
+			display: block
+			width: 100%
+			position: relative
+			opacity: 0
+			transition: opacity $default-transition-duration $default-transition-function
+	.member-fade-out
+		opacity: 1
+		transition: opacity $default-transition-duration $default-transition-function
+	&.member-loaded
+		.member-avatar
+			transition-property: box-shadow, transform
+			transition-duration: $default-transition-duration
+			transition-timing-function: $default-transition-function
+			cursor: pointer
+			.member-avatar-link
+				display: block
+				width: 200%
+				height: 200%
+				transform: scale(2)
+				position: absolute
+				top: -50%
+				left: -50%
+				opacity: 0
+				transition-property: transform, opacity
+				transition-duration: $default-transition-duration
+				transition-timing-function: $default-transition-function
+				background: url('../../../content/img/steam.svg') center no-repeat
+				background-color: $color-base
+				background-size: 64px 64px
+			.member-avatar-image
+				opacity: 1
+		.tap-protector
+			&:hover
+				.member-avatar
+					box-shadow: 0 0 0 $spacing-xs rgba($color-base, $multiplier_very_low)
+					transform: scale(.95)
+					.member-avatar-link
+						transform: scale(1)
+						opacity: 1
+		.member-fade-out
+			opacity: 0
+	+breakpoint-min($breakpoint-l)
+		+supports-no('bug-free-flexbox')
+			height: 320px
+	+breakpoint-max($breakpoint-l)
+		background-color: $color-canvas
+		padding: $spacing-s
+		border-radius: $spacing-xxs
+		height: 100%
+		position: relative
+		border: $light-border-width $light-border-style $light-border-color
+		&:before
+			border-top-right-radius: $spacing-xxs
+			border-top-left-radius: $spacing-xxs
+			content: ''
+			position: absolute
+			height: $spacing-xl
+			width: 100%
+			top: $light-border-width * -1
+			left: $light-border-width * -1
+			box-sizing: content-box
+			padding: $light-border-width $light-border-width 0
+			background-color: $color-brand
+			background: linear-gradient(to right, $color-brand, $color-accent)

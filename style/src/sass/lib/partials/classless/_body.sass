@@ -1,0 +1,13 @@
+body
+	@if $color-canvas != white
+		background: $color-canvas
+	color: $default-font-color
+	font-family: $default-font-family
+	font-size: $default-font-size
+	@if $default-font-weight != normal
+		font-weight: $default-font-weight
+	@if $default-line-height-multiplier != 1
+		line-height: $default-line-height-multiplier
+	overflow-x: hidden
+	position: relative
+	width: 100%

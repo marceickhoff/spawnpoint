@@ -1,0 +1,26 @@
+.grid
+	+breakpoint-min($breakpoint-s)
+		&.grid-spacious
+			margin: 0 $spacing-l * -.5 $spacing-l * -1
+			top: $spacing-l * -.5
+			&:not(:last-child)
+				margin-bottom: $spacing-l * -1
+			&+&
+				margin-top: $spacing-l
+			> *
+				padding: $spacing-l / 2
+	+breakpoint-min($breakpoint-l)
+		&.grid-spacious
+			margin: 0 $spacing-xl * -.5 $spacing-xl * -1
+			top: $spacing-xl * -.5
+			&:not(:last-child)
+				margin-bottom: $spacing-xl * -1
+			&+&
+				margin-top: $spacing-xl
+			> *
+				padding: $spacing-xl / 2
+	+supports-no('bug-free-flexbox') //correct flexbox boxsizing
+		@each $size, $breakpoint in ('s':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+			+breakpoint-min($breakpoint)
+				.col-#{$size}-min, .col-#{$size}-max
+					width: auto

@@ -1,0 +1,37 @@
+.panel
+	overflow: hidden
+	&:not(:first-child)
+		margin-top: $spacing-l
+	&:not(:last-child)
+		margin-bottom: $spacing-l
+	border-radius: $default-border-radius
+	border: $light-border-width $light-border-style $light-border-color
+	border-left: $spacing-xxs $default-border-style color-mod($color-base, 3)
+	padding: $spacing-s $spacing-s $spacing-s $spacing-s - $spacing-xxs
+	&.panel-tight
+		padding-top: $spacing-xs
+		padding-bottom: $spacing-xs
+	.panel-dismiss
+		float: right
+		cursor: pointer
+		color: inherit
+	.panel-heading
+		font-weight: $default-font-weight-bold
+		font-size: $font-size-s
+		margin-bottom: $spacing-s - $spacing-xxs
+	&.base, &.brand, &.accent, &.danger, &.warning, &.success, &.notice
+		color: inherit
+	&.base
+		border-left-color: $color-base
+	&.brand
+		border-left-color: $color-brand
+	&.accent
+		border-left-color: $color-accent
+	&.danger
+		border-left-color: $color-danger
+	&.warning
+		border-left-color: $color-warning
+	&.success
+		border-left-color: $color-success
+	&.notice
+		border-left-color: $color-notice

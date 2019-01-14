@@ -1,0 +1,17 @@
+.header
+	position: absolute
+	top: 0
+	left: 0
+	z-index: 1
+	padding: $spacing-viewport-small
+	width: 100%
+	+breakpoint-min($breakpoint-m)
+		padding: $spacing-viewport-large
+	+breakpoint-max($breakpoint-m)
+		&+*
+			.wrapper
+				padding-top: 128 / 16 + $spacing-viewport-small + $spacing-l
+	+breakpoint-max($breakpoint-l)
+		&+*
+			.wrapper
+				padding-top: 128 / 16 + $spacing-viewport-large + $spacing-l

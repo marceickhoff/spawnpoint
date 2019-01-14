@@ -1,0 +1,78 @@
+table:not([class]), .table
+	max-width: 100%
+	overflow: auto
+	&:not(:first-child)
+		margin-top: $spacing-m
+	&:not(:last-child)
+		margin-bottom: $spacing-m
+	td, th
+		vertical-align: top
+		text-align: left
+		padding: $spacing-xs $spacing-s
+		border-color: $light-border-color
+		border-style: $default-border-style
+		&:not(:first-child)
+			border-left: $default-border-width $light-border-color $default-border-style
+		&.min
+			width: .1px
+	&.va-middle, td.va-middle, th.va-middle
+		vertical-align: middle
+	th
+		@if $headline-font-family != $default-font-family
+			font-family: $headline-font-family
+		@if $headline-font-weight != $default-font-weight
+			font-weight: $headline-font-weight
+		@if $headline-font-color != $default-font-color
+			color: $headline-font-color
+	thead, tbody, tfoot
+		tr:not(:first-child)
+			td, th
+				border-top-width: $default-border-width
+				padding-top: $spacing-xs - $default-border-width
+		&:first-child
+			tr:first-child
+				td, th
+					border-top: none
+	thead
+		+ tbody, + tfoot
+			tr:first-child
+				td, th
+					border-top: none
+		td, th
+			border-bottom: $default-border-width $default-border-style $default-border-color
+			padding-bottom: $spacing-xs - $default-border-width
+	tfoot
+		td, th
+			border-top-width: $default-border-width
+			padding-top: $spacing-xs - $default-border-width
+			border-top-color: $default-border-color !important
+			font-style: italic
+	&.brand th, .brand th, th.brand, &.brand td, .brand td, td.brand
+		color: $color-brand
+		border-color: color-mod($color-brand, 2)
+		background: color-mod($color-brand, 3)
+	&.accent th, .accent th, th.accent, &.accent td, .accent td, td.accent
+		color: $color-accent
+		border-color: color-mod($color-accent, 2)
+		background: color-mod($color-accent, 3)
+	&.danger th, .danger th, th.danger, &.danger td, .danger td, td.danger
+		color: $color-danger
+		border-color: color-mod($color-danger, 2)
+		background: color-mod($color-danger, 3)
+	&.warning th, .warning th, th.warning, &.warning td, .warning td, td.warning
+		color: $color-warning
+		border-color: color-mod($color-warning, 2)
+		background: color-mod($color-warning, 3)
+	&.success th, .success th, th.success, &.success td, .success td, td.success
+		color: $color-success
+		border-color: color-mod($color-success, 2)
+		background: color-mod($color-success, 3)
+	&.notice th, .notice th, th.notice, &.notice td, .notice td, td.notice
+		color: $color-notice
+		border-color: color-mod($color-notice, 2)
+		background: color-mod($color-notice, 3)
+	&.muted th, .muted th, th.muted, &.muted td, .muted td, td.muted
+		color: $color-muted
+		text-decoration: line-through
+	+breakpoint-max($breakpoint-s)
+		display: block //This may cause problems in special cases...

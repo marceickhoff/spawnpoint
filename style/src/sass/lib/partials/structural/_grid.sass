@@ -1,0 +1,92 @@
+.grid
+	margin: 0 $spacing-m * -.5 $spacing-m * -1
+	top: $spacing-m * -.5
+	position: relative
+	display: flex
+	flex-flow: row wrap
+	align-items: stretch
+	&:not(:last-child)
+		margin-bottom: $spacing-m * -1
+	&+&
+		margin-top: $spacing-m
+	&.grid-tight
+		margin: 0 $spacing-xs * -.5 $spacing-xs * -1
+		top: $spacing-xs * -.5
+		&:not(:last-child)
+			margin-bottom: $spacing-xs * -1
+			&+&
+				margin-top: $spacing-xs
+		> *
+			padding: $spacing-xs / 2
+	@for $i from 1 through $grid-size
+		.col-#{$i}
+			flex-basis: $i / $grid-size * 100%
+	.col-min
+		flex-basis: auto
+		flex-shrink: 1
+	.col-max
+		flex-basis: 0
+		flex-grow: 1
+	@each $size, $breakpoint in ('s':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+		+breakpoint-min($breakpoint)
+			@for $i from 1 through $grid-size
+				.col-#{$size}-#{$i}
+					flex-basis: $i / $grid-size * 100%
+			.col-#{$size}-min
+				flex-basis: auto
+				flex-shrink: 1
+			.col-#{$size}-max
+				flex-basis: 0
+				flex-grow: 1
+	> *
+		padding: $spacing-m / 2
+		position: relative
+		align-self: stretch
+		overflow: hidden
+		&.col-align-middle, &.col-align-bottom
+			display: flex
+		&.col-align-middle
+			align-items: center
+		&.col-align-bottom
+			align-items: flex-end
+	+breakpoint-min($breakpoint-s)
+		&.grid-tight
+			margin: 0 $spacing-xs * -.5 $spacing-xs * -1
+			top: $spacing-xs * -.5
+			&:not(:last-child)
+				margin-bottom: $spacing-xs * -1
+			&+&
+				margin-top: $spacing-xs
+			> *
+				padding: $spacing-xs / 2
+	+breakpoint-min($breakpoint-l)
+		margin: 0 $spacing-l * -.5 $spacing-l * -1
+		top: $spacing-l * -.5
+		&:not(:last-child)
+			margin-bottom: $spacing-l * -1
+		&+&
+			margin-top: $spacing-l
+		> *
+			padding: $spacing-l / 2
+		&.grid-tight
+			margin: 0 $spacing-s * -.5 $spacing-s * -1
+			top: $spacing-s * -.5
+			&:not(:last-child)
+				margin-bottom: $spacing-s * -1
+			&+&
+				margin-top: $spacing-s
+			> *
+				padding: $spacing-s / 2
+	+supports-no('bug-free-flexbox') //correct flexbox boxsizing
+		display: block
+		@for $i from 1 through $grid-size
+			.col-#{$i}
+				width: $i / $grid-size * 100%
+		@each $size, $breakpoint in ('s':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+			+breakpoint-min($breakpoint)
+				@for $i from 1 through $grid-size
+					.col-#{$size}-#{$i}
+						width: $i / $grid-size * 100%
+		> *
+			float: left
+		+clearfix

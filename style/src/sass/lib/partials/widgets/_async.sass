@@ -1,0 +1,12 @@
+.async
+	min-height: $spacing-xs * 2
+	min-width: $spacing-xs * 3 + $spacing-xxs
+	> img
+		opacity: 0
+		transition: opacity $default-transition-duration $default-transition-function
+		display: block
+	&.async-loaded
+		> img
+			opacity: 1
+		.loading
+			display: none

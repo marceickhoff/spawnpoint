@@ -1,0 +1,14 @@
+input, textarea
+	font: inherit
+	font-size: $default-font-size
+	color: inherit
+	padding: (($default-font-size * $default-line-height-multiplier) / 2) - $default-font-size / 2 - $default-border-width $spacing-xxs - $default-border-width
+	border: $default-border-width $default-border-style $default-border-color
+	@if $default-border-radius > 0
+		border-radius: $default-border-radius
+	&+label
+		padding-bottom: $default-font-size * $default-line-height-multiplier - $default-font-size
+label
+	cursor: pointer
+	&+input, &+textarea
+		padding-top: $default-font-size * $default-line-height-multiplier - $default-font-size

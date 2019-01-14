@@ -1,0 +1,8 @@
+.narrow
+	max-width: $max-content-width-narrow !important
+	margin-left: auto
+	margin-right: auto
++breakpoint-min($max-content-width + ($max-content-width - $max-content-width-narrow))
+	.extend
+		margin-left: ($max-content-width - $max-content-width-narrow) * -.5
+		margin-right: ($max-content-width - $max-content-width-narrow) * -.5

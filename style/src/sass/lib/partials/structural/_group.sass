@@ -1,0 +1,30 @@
+.group
+	display: flex
+	flex-flow: row wrap
+	margin: $spacing-xs * -1
+	width: 100% //Compatibility fallback
+	width: calc(100% + 2 * #{$spacing-xs})
+	.group-item
+		margin: $spacing-xs
+	&.group-tight
+		margin: $spacing-xxs * -1
+		.group-item
+			margin: $spacing-xxs
+	&.group-right
+		justify-content: flex-end
+	&.group-center
+		justify-content: center
+	@each $size, $breakpoint in ('nav':$breakpoint-nav, 's':$breakpoint-s, 'm':$breakpoint-m, 'l':$breakpoint-l)
+		+breakpoint-min($breakpoint)
+			&.group-#{$size}-right
+				justify-content: flex-end
+			&.group-#{$size}-center
+				justify-content: center
+	+supports-no(flexboxboxsizing)
+		display: block
+		flex-flow: initial
+		margin-top: 0
+		margin-bottom: 0
+		+clearfix
+		.group-item
+			float: left

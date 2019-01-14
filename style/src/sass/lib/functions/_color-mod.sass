@@ -1,0 +1,9 @@
+@function color-mod($color, $level)
+	$levels: (-5:$multiplier_very_low, -4:$multiplier_low, -3:$multiplier_medium, -2:$multiplier_high, -1:$multiplier_very_high, 1:$multiplier_very_high, 2:$multiplier_high, 3:$multiplier_medium, 4:$multiplier_low, 5:$multiplier_very_low)
+	@if map-has-key($levels, $level)
+		@if $level > 0
+			@return mix($color, $color-canvas, 100% * map-get($levels, $level))
+		@else if $level < 0
+			@return mix($color, $color-base, 100% * map-get($levels, $level))
+	@else
+		@return $color
