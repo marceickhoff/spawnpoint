@@ -21,7 +21,7 @@
 	<meta property="og:site_name" content="<?php echo $og_title ?>">
 	<meta property="og:description" content="<?php echo $og_desc ?>">
 	<meta property="og:type" content="website">
-	<meta property="og:image" content="http://spawnpoint.de/content/img/og-logo.jpg">
+	<meta property="og:image" content="https://spawnpoint.de/content/img/og-logo.jpg">
 </head>
 <body>
 <div class="header">
@@ -174,7 +174,7 @@
 		</div>
 	</div>
 </footer>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="spawnpoint.min.js?<?=filemtime('spawnpoint.min.js')?>" defer></script>
 </body>
 </html>
