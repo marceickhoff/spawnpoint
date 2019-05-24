@@ -37,8 +37,8 @@
 <div class="hero" id="about">
 	<div class="wrapper">
 		<div class="grid">
-			<div class="col-12 col-l-6 visible-l">
-				<img class="appear appear-1" src="content/img/logo.svg" width="512" height="512" alt="Spawnpoint">
+			<div class="col-12 col-l-6 visible-l appear appear-1 tilt-container">
+				<img class="tilt" src="content/img/logo.svg" width="512" height="512" alt="Spawnpoint">
 			</div>
 			<div class="col-12 col-l-6 col-align-middle">
 				<div class="container">
