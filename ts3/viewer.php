@@ -6,6 +6,8 @@
 		// build and display HTML treeview using custom image paths (remote icons will be embedded using data URI sheme)
 		error_reporting(E_ALL);
 		$html = $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html());
+		$html = str_replace('<img src=\'ts3/images/viewer/client_snd_muted.png\' title=\'\' alt=\'\' align=\'top\' />', '<span class="tsviewer-signal tsviewer-signal-muted"></span>', $html);
+		$html = str_replace('<img src=\'ts3/images/viewer/client_mic_muted.png\' title=\'\' alt=\'\' align=\'top\' />', '<span class="tsviewer-signal tsviewer-signal-muted"></span>', $html);
 		$html = str_replace('<img src=\'ts3/images/viewer/client_talk.png\' title=\'\' alt=\'\' align=\'top\' />', '<span class="tsviewer-signal tsviewer-signal-active"></span>', $html);
 		$html = preg_replace('/img src=\'ts3\/images\/viewer\/client_[a-z_]+\.png\' title=\'\' alt=\'\' align=\'top\' \//i', 'span class="tsviewer-signal"></span', $html); //Ugly but works good enough
 		echo $html;

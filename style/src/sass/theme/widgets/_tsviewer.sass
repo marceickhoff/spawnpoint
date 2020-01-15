@@ -69,6 +69,9 @@
 		vertical-align: bottom
 		position: relative
 		background-color: color-mod($color-base, 4)
+		&.tsviewer-signal-muted
+			background: transparent
+			box-shadow: 0 0 0 $default-border-width color-mod($color-base, 5) inset
 		&.tsviewer-signal-active
 			background-color: $color-success
 			&:before
